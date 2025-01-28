@@ -138,12 +138,10 @@ fun StudentApp() {
         ) {
             Text("Reset", color = MaterialTheme.colorScheme.primary)
         }
+        Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Loaded ID: $loadedStudentNum")
         Text(text = "Loaded Student Name: $loadedStudentName")
         Text(text = "Loaded Course Name: $loadedCourseName")
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("Student Name: Yu-Ling Wu")
-        Text("Student ID: 301434538")
     }
 }
 
