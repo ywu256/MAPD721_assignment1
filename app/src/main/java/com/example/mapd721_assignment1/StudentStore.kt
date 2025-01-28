@@ -26,4 +26,14 @@ class StudentStore(private val context: Context) {
             preferences[COURSE_NAME_KEY] = courseName
         }
     }
+
+    // Load student data
+    suspend fun loadStudentData(): Triple<String, String, String> {
+        val preferences = context.dataStore.data.first()
+        val studentNum = preferences[STUDENT_NUM_KEY] ?: ""
+        val studentName = preferences[STUDENT_NAME_KEY] ?: ""
+        val courseName = preferences[COURSE_NAME_KEY] ?: ""
+        return Triple(studentNum, studentName, courseName)
+    }
+
 }

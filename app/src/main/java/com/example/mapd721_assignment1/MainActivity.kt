@@ -98,7 +98,14 @@ fun StudentApp() {
         )
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Button(
-                onClick = {},
+                onClick = {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val (num, name, course) = store.loadStudentData()
+                        loadedStudentNum = num
+                        loadedStudentName = name
+                        loadedCourseName = course
+                    }
+                },
                 modifier = Modifier.size(width = 130.dp, height = 45.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
             ) {
