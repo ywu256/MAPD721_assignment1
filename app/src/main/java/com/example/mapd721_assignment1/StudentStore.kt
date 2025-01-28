@@ -36,4 +36,10 @@ class StudentStore(private val context: Context) {
         return Triple(studentNum, studentName, courseName)
     }
 
+    // Clear student data
+    suspend fun clearStudentData() {
+        context.dataStore.edit { preferences ->
+            preferences.clear()
+        }
+    }
 }

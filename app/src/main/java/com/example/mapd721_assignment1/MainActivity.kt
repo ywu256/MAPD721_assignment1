@@ -125,7 +125,14 @@ fun StudentApp() {
 
         }
         Button(
-            onClick = { },
+            onClick = {
+                CoroutineScope(Dispatchers.IO).launch {
+                    store.clearStudentData()
+                    loadedStudentNum = ""
+                    loadedStudentName = ""
+                    loadedCourseName = ""
+                }
+            },
             modifier = Modifier.size(width = 276.dp, height = 45.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Cyan)
         ) {
