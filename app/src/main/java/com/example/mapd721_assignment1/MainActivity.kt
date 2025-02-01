@@ -71,7 +71,7 @@ fun StudentApp() {
     }
     val store = StudentStore(context)
 
-    var loadedStudentNum by remember { mutableStateOf("") }
+    var loadedStudentNum by remember { mutableStateOf("538") }
     var loadedStudentName by remember { mutableStateOf("") }
     var loadedCourseName by remember { mutableStateOf("") }
 
@@ -85,6 +85,7 @@ fun StudentApp() {
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(text = "MAPD721 Assignment 1", fontWeight = FontWeight.Bold)
+
         TextField(
             value = studentNumValue.value,
             onValueChange = { studentNumValue.value = it },
@@ -100,6 +101,7 @@ fun StudentApp() {
             onValueChange = { courseNameValue.value = it },
             label = { Text("Course Name") }
         )
+
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             /* Load Button */
             Button(
@@ -116,6 +118,7 @@ fun StudentApp() {
             ) {
                 Text("Load", color = MaterialTheme.colorScheme.primary)
             }
+
             /* Store Button */
             Button(
                 onClick = {
@@ -130,6 +133,7 @@ fun StudentApp() {
             }
 
         }
+
         /* Reset Button */
         Button(
             onClick = {
@@ -145,7 +149,10 @@ fun StudentApp() {
         ) {
             Text("Reset", color = MaterialTheme.colorScheme.primary)
         }
+
         Spacer(modifier = Modifier.height(16.dp))
+
+        /* Display the result */
         Text(text = "Loaded ID: $loadedStudentNum")
         Text(text = "Loaded Student Name: $loadedStudentName")
         Text(text = "Loaded Course Name: $loadedCourseName")
