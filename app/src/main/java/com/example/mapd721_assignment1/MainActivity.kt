@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -78,9 +79,12 @@ fun StudentApp() {
         modifier = Modifier
             .clickable { keyboardController?.hide() }
             .fillMaxSize()
-            .padding(20.dp),
+            .padding(50.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Text(text = "MAPD721 Assignment 1", fontWeight = FontWeight.Bold)
         TextField(
             value = studentNumValue.value,
             onValueChange = { studentNumValue.value = it },
@@ -97,6 +101,7 @@ fun StudentApp() {
             label = { Text("Course Name") }
         )
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            /* Load Button */
             Button(
                 onClick = {
                     CoroutineScope(Dispatchers.IO).launch {
@@ -111,6 +116,7 @@ fun StudentApp() {
             ) {
                 Text("Load", color = MaterialTheme.colorScheme.primary)
             }
+            /* Store Button */
             Button(
                 onClick = {
                     CoroutineScope(Dispatchers.IO).launch {
@@ -124,6 +130,7 @@ fun StudentApp() {
             }
 
         }
+        /* Reset Button */
         Button(
             onClick = {
                 CoroutineScope(Dispatchers.IO).launch {
